@@ -1,0 +1,19 @@
+{
+  "name": "nodekk",
+  "version": "1.0.1",
+  "description": "NodeJS modules containing simple tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Krishna",
+  "license": "ISC",
+  "dependencies": {
+    "exceljs": "^1.13.0",
+    "fast-xml-parser": "^3.12.17",
+    "read-xml": "^3.0.0"
+  },
+  "bugs": {
+    "email": "krishnamk2496@gmail.com"
+  }
+}

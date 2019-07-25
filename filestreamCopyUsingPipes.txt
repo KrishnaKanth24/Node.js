@@ -1,0 +1,6 @@
+Read file stream 
+just like readfile 
+there is a createReadStream and on function
+that takes a chunk of data and
+we have to convert it to string 
+and print it 
