@@ -1,0 +1,182 @@
+Node.js
+open-source javascript run-time environment that executes javascript code outside of a browser
+major advantage is Non blocking asynchronous
+
+What is runtime environment?
+in javascript we use button onclick="func()" so when the browser is running a code is executed when user does something
+
+lets us use javascript to write command line tools and for server side scripting
+node.js does not say node(file name with a extension of .js(javascript)) but rather it is a product as a whole
+does not execute code from top to bottom ...it executes everything at the same time 
+node.js is primarily used to build web servers
+node.js allows for real time web application with push capability
+Node.js also has the ability to embedded external functionality or extended functionality by making use of custom modules
+one such custom module is mongoDB
+
+the major difference between node.js and php is most functions in php block until completion while
+node.js functions are no-blocking (they run concurrently or in parallel)
+
+npm(node package manager) is the package manager for node.js designed to simply installation and updation 	
+it comes bundled with node.js
+
+What is a package manager?
+A package manager is a collection of software tools that automates process of installing, upgrading, configuring, and removing programs for a computers operating system.
+
+What is modules in node.js ?
+modules are folders(inside folders, there are files with .js extension) 
+you can include a module into your file
+
+updatedddd till here
+
+npm takes care of installing/updating/uninstalling any third party modules to node.js
+
+chrome v8 javascript engine on top of it C++ program and u get node.js 
+
+Questions and answer
+--node.js runs on server
+--Node.js terminal (REPL(Read-Eval-Print-Loop)) is used for testing node.js/JavaScript expressions
+--default scope in node.js application is local
+--node.js application runs on single thread 
+--GUI-based debugging tool for Node.js is Node Inspector
+--web application frameworks for Node.js are Express.js Geddy Locomotive
+--types of application can be built using Node.js are Web Application Chat Application RESTful Serrvice
+--template engines can be used with Node.js are Jade Vash Handlebars
+--tool automates various tasks of Node.js application are gruntJS
+--Node.js application can access which of the following databases NoSQL databases Relational databases
+
+what is REPL  AKA node shell 
+can be used to test simple javascript codes
+you can define variable and perform calculations on them
+repl will not execute node.js files 
+
+if you want to execute files use CMD prompt  write node path\filename.js
+
+What is node.js framework?
+A Node.js framework is just some abstract design, built out of Node.js, that embodies the control flow of the given 
+framework’s design. So it is almost like the skeleton of a program whereby the customised codes you write kind of 
+makes up as the meat that completes the program.
+
+So for every Node.js function, there would be some generic implementation unique to the framework which would 
+then require the user to follow the lead of the framework by adding more codes to define its use case.
+
+Difference between Package and modules in nodejs?
+Modules are libraries for node.js
+you can load a module in your nodejs file using require() function.
+a package is one or more modules(libraries) grouped together and used by other packages or project of yours
+a package is described by package.json file
+modules will be installed, if listed as dependencies in the package.json
+Actually npm installs all the packages into node_modules which is confusing, because it should be node_packages.
+
+what are dependencies ? 
+your module which is inside a package needs another module or bunch of modules(package)
+then you will include that module or package in your dependencies list inside package.json file under your package 
+install the dependency after creating a package.json file (npm will automatically update dependencies column
+after you install modules for your package) 
+install the dependency inside your package (eg: E:\nodekk> npm install fast-cml-parser)
+
+
+Why do you need package.json file ?
+npm registry contains packages many are node modules or contain node modules
+package is a file or directory that is described by package.json file
+A package must contain package.json file in order to be published to the npm registry
+modules are not required to have package.json, not all modules are packages 
+only modules that have a package.json file are also packages
+package.json contains all information of your web application. it contains all metadata
+
+What is JSON file
+JSON is text, and we can convert any JavaScript object into JSON, and send JSON to the server.
+We can also convert any JSON received from the server into JavaScript objects.
+This way we can work with the data as JavaScript objects, with no complicated parsing and translations.
+var x = {name: "John", age: 31, city: "New York"} ==>this is javascript obj
+var y = '{"name":"John", "age":31, "city":"New York"}' ==> this is JSON
+Syntax
+Data is in name/value pairs or key/value pairs
+Data is separated by commas
+Curly braces hold objects
+Square brackets hold arrays
+
+Basically, Node is not sequential. A different mindset is needed while developing applications on Node platform
+
+Callback Functions
+client to server is one operation 
+server to database is another operation 
+suppose client is requesting a modification in database 
+nodejs will give the modification operation to database and continue with client server requests
+when database modification operation is complete database will call back the server to inform that the operation is complete 
+it can be a success information that is passed to server and if client wants it server can print it to client
+just like how you can pass objects as arguments in a function
+you can pass function as arguments in function
+
+
+ASYNCHRONOUS
+JavaScript is asynchronous in nature and so is Node.
+it is a design pattern which ensures the non-blocking code execution.
+We want to execute tasks which are dependent on each other hence we wrap 
+them into the callbacks of each function and hence caught into callback hell situation.
+To avoid callback hell, follow one or combination of the following :
+Modularise your code.
+Use generators.
+Use promises
+Use event-driven programming.
+Use Async.js
+
+the proper way to learn from start is event loop, callbacks, promises, async and await
+
+Generators provides you the ability to convert asynchronous code to synchronous one.
+Promises can be used to avoid chaining of callbacks
+This lets asynchronous methods return values like synchronous methods: 
+instead of the final value, the asynchronous method returns a promise for the value at 
+some point in the future.
+
+The word “async” before a function means one simple thing: a function always returns a promise.
+In order to be able to use await, the innermost function that surrounds it must be an async function. 
+Anything you await is passed through Promise.resolve(), so you can safely await non-native promises.
+Async functions always return a promise, whether you use await or not. That promise resolves with whatever the async function returns, or rejects with whatever the async function throws
+
+in fs.readFileSync("sample.txt","utf-8", function(err,data){console.log(data)})
+that function is called is called anonymous or callback function
+the file reading happens in the background and when it is completed it invokes the callback function
+
+callbacks can become a problem if u r nesting too many into it 
+so promise is an enhancement to callback functions 
+the basic syntax of promise is 
+var promise = doSomethingAync() //this is a callback function
+promise.then(onFulfilled, onRejected)
+
+So the key aspect of a promise is the return value. There is no concept of a return value when working with normal callbacks
+when defining promises then method itself returns a promise
+
+let promise = new Promise(function(resolve, reject) {
+  // executor
+});
+the function makes a promise that after i complete my job i will either give a success or failure
+When the executor finishes the job, it should call one of the functions that it gets as arguments:
+resolve(value)
+  the final result will be value
+reject(error)
+the final result will be error
+The executor is called automatically and immediately (by the new Promise).
+The executor receives two arguments: resolve and reject — these functions are pre-defined by the JavaScript engine. 
+So we don’t need to create them. We only should call one of them when ready.
+To summarize, the executor should do a job (something that takes time usually) and 
+then call resolve or reject to change the state(from pending to either fulfilled or rejected) of the corresponding Promise object.
+resolve/reject expect only one argument (or none) and will ignore additional arguments.
+promise.then(
+  function(result) { /* handle a successful result */ },
+  function(error) { /* handle an error */ }
+);
+The first argument of .then is a function that:
+runs when the promise is resolved, and
+receives the result.
+
+The second argument of .then is a function that:
+runs when the promise is rejected, and
+receives the error
+
+promise chaining
+a call to promise.then returns a promise, so that we can call the next .then on it.
+
+
+JAVASCRIPT BASICS
+only two types --> primitive values(booleans, numbers, strings, null and undefined) all other values are objects(plain objects(key value pair), arrays, regular expressions)
+in javascript, a function can be treated as a class
